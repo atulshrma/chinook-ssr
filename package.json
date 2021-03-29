@@ -1,0 +1,51 @@
+{
+  "name": "chinook-ssr",
+  "version": "1.0.0",
+  "description": "## Goal",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "dev": "npm run webpack && COMPILER_ENV=server babel-node src/server.js",
+    "webpack-production": "NODE_ENV=production webpack -p",
+    "babel-production": "NODE_ENV=production COMPILER_ENV=server babel --out-dir dist src",
+    "start": "node dist/server.js",
+    "build": "npm run webpack-production && npm run babel-production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "compression": "^1.7.4",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-table": "^7.6.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.13",
+    "@babel/node": "^7.13.13",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-file-loader": "^2.0.0",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.4.0",
+    "nodemon": "^2.0.7",
+    "raw-loader": "^4.0.2",
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  }
+}
