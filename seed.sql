@@ -15815,3 +15815,12 @@ INSERT INTO "PlaylistTrack" ("PlaylistId", "TrackId") VALUES (17, 2096);
 INSERT INTO "PlaylistTrack" ("PlaylistId", "TrackId") VALUES (17, 3290);
 INSERT INTO "PlaylistTrack" ("PlaylistId", "TrackId") VALUES (18, 597);
 
+CREATE SEQUENCE "public"."TrackId_Seq"
+    INCREMENT 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 3503
+    CACHE 1;
+SELECT setval('"public"."TrackId_Seq"', 3503, true);
+
+ALTER TABLE "Track" ALTER COLUMN "TrackId" SET DEFAULT nextval('"public"."TrackId_Seq"'::regclass);

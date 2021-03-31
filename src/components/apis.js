@@ -1,5 +1,7 @@
 import Tracks from './tracks';
 
-export default {
+const Apis = [
     Tracks,
-}
+];
+
+export default Apis;

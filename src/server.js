@@ -2,6 +2,7 @@ import express from 'express';
 import compression from 'compression';
 import path from 'path';
 import dotenv from 'dotenv';
+import { json, urlencoded } from 'body-parser';
 
 import { createConnectionPool } from './db';
 import router from './routes';
@@ -15,6 +16,9 @@ app.set('view engine', 'ejs');
 
 app.use(compression());
 app.use('/public', express.static(path.join(__dirname, 'static', 'public')));
+
+app.use(json());
+app.use(urlencoded({ extended: true }));
 
 app.use('/', router);
 

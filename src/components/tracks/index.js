@@ -1,16 +1,22 @@
-import React from 'react';
-import { renderToString } from 'react-dom/server';
 import Controllers from './controllers';
-import Views from './views';
 
 export default function () {
     this.get('/tracks', async (req, res) => {
-        const reactComponent = renderToString(<Views.List />);
-        res.status(200).render('tracks', { reactComponent });
-    });
-
-    this.get('/api/tracks', async (req, res) => {
         const { tracks, totalPages, hasNext } = await Controllers.List(req);
         res.json({ tracks, totalPages, hasNext });
+    });
+
+    this.post('/tracks', async (req, res) => {
+        const { success, errMessage } = await Controllers.Create(req);
+        if (!success) {
+            return res.status(400).json({ success, errMessage });
+        }
+        return res.json({ success, errMessage });
+    });
+
+    this.get('/tracks/new', async (req, res) => {
+        const { genres } = await Controllers.New(req);
+
+        res.json({ genres });
     });
 }

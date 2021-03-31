@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const production = process.env.NODE_ENV === 'production'
 
-const pages = ['landing', 'tracks']
+const pages = ['app', 'landing', 'tracksList', 'tracksNew']
 
 const generateEntryPoints = (entry) => {
     return entry.reduce((obj, item) => {
