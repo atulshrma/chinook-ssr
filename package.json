@@ -4,9 +4,9 @@
   "description": "## Goal",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
+    "webpack": "webpack --mode development",
     "dev": "npm run webpack && COMPILER_ENV=server babel-node src/server.js",
-    "webpack-production": "NODE_ENV=production webpack -p",
+    "webpack-production": "NODE_ENV=production webpack --mode production",
     "babel-production": "NODE_ENV=production COMPILER_ENV=server babel --out-dir dist src",
     "start": "node dist/server.js",
     "build": "npm run webpack-production && npm run babel-production"
